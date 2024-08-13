@@ -13,6 +13,14 @@ export default function App() {
   const [checked, setChecked] = React.useState(false)
   const [score, setScore] = React.useState(0)
   const [loading, setLoading] = React.useState(false)
+
+  const numSelected = justStarted ? 0 :
+    !checked ? 0 :
+    questionsList.reduce((acc, quest) => {
+      const selected = quest.option1.hold || quest.option2.hold || quest.option3.hold || quest.option4.hold
+      return selected ? acc + 1 : acc
+    }, 0) 
+
   function startQuiz() {
     setJustStarted(false)
     createQuestionsList()
@@ -95,7 +103,7 @@ export default function App() {
     <>
       { justStarted && <Start handleClick={startQuiz} /> }
       { !justStarted && !loading && <Quiz questions={questionsList} checked={checked} handleClick={handleClick} /> }
-      { !justStarted && !loading && <End checked={checked} score={score} handleClick={checkClicked} />}
+      { !justStarted && !loading && <End checked={checked} score={score} selected={numSelected} handleClick={checkClicked} />}
       { loading && <Modal /> } 
     </>
   )
