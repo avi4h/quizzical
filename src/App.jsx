@@ -58,7 +58,7 @@ export default function App() {
             return {
               text: a,
               hold: false,
-              correct: a === quest.correct_answer,
+              correct: a === decode(quest.correct_answer),
               opId: nanoid()
             }
           })
