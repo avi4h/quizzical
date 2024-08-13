@@ -1,0 +1,271 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Karla', sans-serif;
+  background-color: rgba(245, 247, 251, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('./assets/topright.svg'), url('./assets/bottomleft.svg');
+  background-position: top right, bottom left;
+  background-repeat: no-repeat, no-repeat;
+  background-size: auto, auto;
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15vw; 
+}
+
+.start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto;
+}
+.start h1 {
+  font-size: 7rem;
+  font-weight: 700;
+  color: rgba(41, 50, 100, 1);
+  margin: 0.5em 0 0;
+}
+.start h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: rgba(41, 50, 100, 1);
+  margin: 0.5em 0;
+}
+.start button{
+  font-family: Inter, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: rgba(245, 247, 251, 1);
+  padding: 0.75em 2.5em;
+  background-color: rgba(77, 91, 158, 1);
+  border: none;
+  border-radius: 15px;
+  margin: 2em 0;
+  cursor: pointer;
+}
+
+.question h3{
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(41, 50, 100, 1);
+  margin: 1em 0 0.6em;
+}
+.question ul{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  padding-left:0;
+  margin: 0.4em 0 0.8em;
+}
+.question li{
+  font-family: Inter , sans-serif;
+  padding: 0.4em 1.5em;
+  list-style: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(41, 50, 100, 1);
+  border-radius: 8px;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+}
+.question hr{
+  border: 0.8px solid rgba(219, 222, 240, 1);
+}
+
+.end{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.end p{
+  font-family: Inter, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  color: rgba(41, 50, 100, 1);
+}
+
+.end button{
+  font-family: Inter, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(245, 247, 251, 1);
+  padding: 1em 3em;
+  background-color: rgba(77, 91, 158, 1);
+  border: 0px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+
+/* Modal CSS */
+.cssload-square {
+	margin: 158px auto;
+	width: 45px;
+	height: 45px;
+	transform: rotate(-45deg);
+		-o-transform: rotate(-45deg);
+		-ms-transform: rotate(-45deg);
+		-webkit-transform: rotate(-45deg);
+		-moz-transform: rotate(-45deg);
+}
+.cssload-square-part {
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	z-index: 1;
+	animation: cssload-part-anim 0.76s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+		-o-animation: cssload-part-anim 0.76s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+		-ms-animation: cssload-part-anim 0.76s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+		-webkit-animation: cssload-part-anim 0.76s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+		-moz-animation: cssload-part-anim 0.76s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+}
+.cssload-square-green {
+	background: rgb(163,231,229);
+	right: 0;
+	bottom: 0;
+	animation-direction: alternate-reverse;
+		-o-animation-direction: alternate-reverse;
+		-ms-animation-direction: alternate-reverse;
+		-webkit-animation-direction: alternate-reverse;
+		-moz-animation-direction: alternate-reverse;
+}
+.cssload-square-pink {
+	background: rgb(247,212,192);
+	left: 0;
+	top: 0;
+}
+.cssload-square-blend {
+	background: rgb(159,170,206);
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 2;
+	animation: blend-anim 0.76s ease-in infinite;
+		-o-animation: blend-anim 0.76s ease-in infinite;
+		-ms-animation: blend-anim 0.76s ease-in infinite;
+		-webkit-animation: blend-anim 0.76s ease-in infinite;
+		-moz-animation: blend-anim 0.76s ease-in infinite;
+}
+@keyframes blend-anim {
+	0% {
+		transform: scale(0.01, 0.01) rotateY(0);
+		animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+	}
+	50% {
+		transform: scale(1, 1) rotateY(0);
+		animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+	}
+	100% {
+		transform: scale(0.01, 0.01) rotateY(0);
+	}
+}
+@-o-keyframes blend-anim {
+	0% {
+		-o-transform: scale(0.01, 0.01) rotateY(0);
+		-o-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+	}
+	50% {
+		-o-transform: scale(1, 1) rotateY(0);
+		-o-animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+	}
+	100% {
+		-o-transform: scale(0.01, 0.01) rotateY(0);
+	}
+}
+@-ms-keyframes blend-anim {
+	0% {
+		-ms-transform: scale(0.01, 0.01) rotateY(0);
+		-ms-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+	}
+	50% {
+		-ms-transform: scale(1, 1) rotateY(0);
+		-ms-animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+	}
+	100% {
+		-ms-transform: scale(0.01, 0.01) rotateY(0);
+	}
+}
+@-webkit-keyframes blend-anim {
+	0% {
+		-webkit-transform: scale(0.01, 0.01) rotateY(0);
+		-webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+	}
+	50% {
+		-webkit-transform: scale(1, 1) rotateY(0);
+		-webkit-animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+	}
+	100% {
+		-webkit-transform: scale(0.01, 0.01) rotateY(0);
+	}
+}
+@-moz-keyframes blend-anim {
+	0% {
+		-moz-transform: scale(0.01, 0.01) rotateY(0);
+		-moz-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+	}
+	50% {
+		-moz-transform: scale(1, 1) rotateY(0);
+		-moz-animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+	}
+	100% {
+		-moz-transform: scale(0.01, 0.01) rotateY(0);
+	}
+}
+@keyframes cssload-part-anim {
+	0% {
+		transform: translate3d(-23px, -23px, 0);
+	}
+	100% {
+		transform: translate3d(23px, 23px, 0);
+	}
+}
+@-o-keyframes cssload-part-anim {
+	0% {
+		-o-transform: translate3d(-23px, -23px, 0);
+	}
+	100% {
+		-o-transform: translate3d(23px, 23px, 0);
+	}
+}
+@-ms-keyframes cssload-part-anim {
+	0% {
+		-ms-transform: translate3d(-23px, -23px, 0);
+	}
+	100% {
+		-ms-transform: translate3d(23px, 23px, 0);
+	}
+}
+@-webkit-keyframes cssload-part-anim {
+	0% {
+		-webkit-transform: translate3d(-23px, -23px, 0);
+	}
+	100% {
+		-webkit-transform: translate3d(23px, 23px, 0);
+	}
+}
+@-moz-keyframes cssload-part-anim {
+	0% {
+		-moz-transform: translate3d(-23px, -23px, 0);
+	}
+	100% {
+		-moz-transform: translate3d(23px, 23px, 0);
+	}
+}
