@@ -1,6 +1,6 @@
 # Quizzical
 
-Quizzical is a quiz-based web application built using React. The application allows users to start a quiz, answer multiple-choice questions, and get their score at the end. The questions are fetched from the Open Trivia Database (OpenTDB) API.
+Quizzical is a trivia-based web application built using React. The application allows users to start a quiz, answer multiple-choice questions, and get their score at the end. The questions are fetched from the Open Trivia Database (OpenTDB) API.
 
 ## Table of Contents
 - [Features](#features)
@@ -13,10 +13,10 @@ Quizzical is a quiz-based web application built using React. The application all
 - [Future Enhancements](#future-enhancements)
 
 ## Features
-- Fetches quiz questions from the OpenTDB API.
+- Fetches trivia questions from the OpenTDB API.
 - Allows users to select answers for multiple-choice questions.
 - Provides feedback by displaying the score after the quiz.
-- Option to restart the quiz after completion.
+- Option to restart the trivia after completion.
 
 ## Getting Started
 
@@ -66,21 +66,21 @@ quizzical/
 ```
 
 ### Key Components
-- **Start.jsx**: The initial screen that prompts the user to start the quiz.
-- **Quiz.jsx**: Displays the quiz questions and handles user interaction with the answers.
-- **End.jsx**: Displays the user's score and provides an option to restart the quiz.
-- **Modal.jsx**: A loading modal displayed while the quiz data is being fetched.
+- **Start.jsx**: The initial screen that prompts the user to start the trivia.
+- **Quiz.jsx**: Displays the trivia questions and handles user interaction with the answers.
+- **End.jsx**: Displays the user's score and provides an option to restart the trivia.
+- **Modal.jsx**: A loading modal displayed while the trivia data is being fetched.
 
 ### State Management
 The app uses React's `useState` to manage the following states:
-- **justStarted**: Tracks whether the quiz has started.
+- **justStarted**: Tracks whether the trivia has started.
 - **questionsList**: Stores the list of questions fetched from the API.
 - **checked**: Tracks whether the answers have been checked.
 - **score**: Stores the user's score.
 - **loading**: Indicates whether the app is in the loading state while fetching data.
 
 ### API Integration
-The quiz questions are fetched from the OpenTDB API:
+The trivia questions are fetched from the OpenTDB API:
 ```javascript
 fetch(`https://opentdb.com/api.php?amount=5&type=multiple`)
   .then(response => response.json())
