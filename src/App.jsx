@@ -3,7 +3,6 @@ import Start from './Start.jsx'
 import Quiz from './Quiz.jsx'
 import End from './End.jsx'
 import Modal from './Modal.jsx'
-import { decode } from 'html-entities'
 import { nanoid } from 'nanoid'
 import './App.css'
 
@@ -48,32 +47,32 @@ export default function App() {
   }
   function createQuestionsList(){
     setLoading(true)
-    fetch(`https://opentdb.com/api.php?amount=5&type=multiple`)
+    fetch(`https://the-trivia-api.com/v2/questions/`)
       .then(response => response.json())
       .then(data => {
-        const fetchedQuestions = data.results
+        const fetchedQuestions = data
         const questionList = fetchedQuestions.map((quest, index) => {
-          const ans = [decode(quest.incorrect_answers[0]), decode(quest.incorrect_answers[1]), decode(quest.incorrect_answers[2]), decode(quest.correct_answer)]
+          const ans = [...quest.incorrectAnswers, quest.correctAnswer]
           const ansObj = ans.map((a) => {
             return {
               text: a,
               hold: false,
-              correct: a === decode(quest.correct_answer),
+              correct: a === quest.correctAnswer,
               opId: nanoid()
             }
           })
           const shuffledAnswers = ansObj.sort(() => Math.random() - 0.5)
           return {
-            question: decode(quest.question),
+            question: quest.question.text,
             option1: shuffledAnswers[0],
             option2: shuffledAnswers[1],
             option3: shuffledAnswers[2],
             option4: shuffledAnswers[3],
-            qId: nanoid(),
+            qId: quest.id,
             num: index
           }
         })
-        setQuestionsList(questionList)
+        setQuestionsList(questionList.slice(0, 5))
         setLoading(false)
       })
       .catch(error => {
