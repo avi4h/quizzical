@@ -102,6 +102,7 @@ export default function App() {
   return (
     <>
       { justStarted && <Start handleClick={startQuiz} /> }
+      { !justStarted && !loading && <h1 style={{ marginTop: "0em", marginBottom: "0.2em", fontSize: "2rem", color:"rgba(41, 50, 100, 1)" }}>Trivia</h1> }
       { !justStarted && !loading && <Quiz questions={questionsList} checked={checked} handleClick={handleClick} /> }
       { !justStarted && !loading && <End checked={checked} score={score} selected={numSelected} handleClick={checkClicked} />}
       { loading && <Modal /> } 
