@@ -27,7 +27,7 @@ Quizzical is a trivia-based web application built using React. The application a
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/quizzical.git
+   git clone https://github.com/avi4h/quizzical.git
    ```
 2. Navigate to the project directory:
    ```bash
