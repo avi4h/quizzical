@@ -1,5 +1,6 @@
 import React from 'react'
 import Start from './Start.jsx'
+import Top from './Top.jsx'
 import Quiz from './Quiz.jsx'
 import End from './End.jsx'
 import Modal from './Modal.jsx'
@@ -13,6 +14,8 @@ export default function App() {
   const [checked, setChecked] = React.useState(false)
   const [score, setScore] = React.useState(0)
   const [loading, setLoading] = React.useState(false)
+  const [currScore, setCurrScore] = React.useState(0)
+  const [rounds, setRounds] = React.useState(0)
 
   const numSelected = justStarted ? 0 :
     !checked ? 0 :
@@ -45,6 +48,8 @@ export default function App() {
       return correct ? acc + 1 : acc
     }, 0)
     setScore(foundScore)
+    setCurrScore(prevScore => prevScore+foundScore)
+    setRounds(prevRounds => prevRounds+1)
   }
   function createQuestionsList(){
     setLoading(true)
@@ -102,7 +107,7 @@ export default function App() {
   return (
     <>
       { justStarted && <Start handleClick={startQuiz} /> }
-      { !justStarted && !loading && <h1 style={{ marginTop: "0em", marginBottom: "0.2em", fontSize: "2rem", color:"rgba(41, 50, 100, 1)" }}>Trivia</h1> }
+      { !justStarted && !loading && <Top score={currScore} rounds={rounds} />}
       { !justStarted && !loading && <Quiz questions={questionsList} checked={checked} handleClick={handleClick} /> }
       { !justStarted && !loading && <End checked={checked} score={score} selected={numSelected} handleClick={checkClicked} />}
       { loading && <Modal /> } 
