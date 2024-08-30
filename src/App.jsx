@@ -15,7 +15,7 @@ export default function App() {
   const [score, setScore] = React.useState(0)
   const [loading, setLoading] = React.useState(false)
   const [currScore, setCurrScore] = React.useState(0)
-  const [rounds, setRounds] = React.useState(0)
+  const [rounds, setRounds] = React.useState(1)
 
   const numSelected = justStarted ? 0 :
     !checked ? 0 :
@@ -35,9 +35,18 @@ export default function App() {
     }
     else{
       setScore(0)
+      setRounds(prevRounds => prevRounds+1)
       setChecked(false)
       createQuestionsList()
     }
+  }
+  function againClicked() {
+    setCurrScore(0)
+    setScore(0)
+    setRounds(1)
+    setQuestionsList([])
+    setChecked(false)
+    createQuestionsList()
   }
   function checkScore(){
     const foundScore = questionsList.reduce((acc, quest) => {
@@ -49,7 +58,6 @@ export default function App() {
     }, 0)
     setScore(foundScore)
     setCurrScore(prevScore => prevScore+foundScore)
-    setRounds(prevRounds => prevRounds+1)
   }
   function createQuestionsList(){
     setLoading(true)
@@ -109,7 +117,7 @@ export default function App() {
       { justStarted && <Start handleClick={startQuiz} /> }
       { !justStarted && !loading && <Top score={currScore} rounds={rounds} />}
       { !justStarted && !loading && <Quiz questions={questionsList} checked={checked} handleClick={handleClick} /> }
-      { !justStarted && !loading && <End checked={checked} score={score} selected={numSelected} handleClick={checkClicked} />}
+      { !justStarted && !loading && <End checked={checked} score={score} selected={numSelected} handleClick={checkClicked} handleAgain={againClicked} />}
       { loading && <Modal /> } 
     </>
   )
