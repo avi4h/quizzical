@@ -1,28 +1,14 @@
 # Quizzical
 
-Quizzical is a trivia-based web application built using React. The application allows users to start a quiz, answer multiple-choice questions, and get their score at the end. The questions are fetched from the Open Trivia Database (OpenTDB) API.
+Quizzical is a trivia-based web application built using React and Open Trivia Database (OpenTDB) API.
 
 ## Table of Contents
-- [Features](#features)
 - [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
-- [Key Components](#key-components)
 - [State Management](#state-management)
 - [API Integration](#api-integration)
-- [Styling](#styling)
-- [Future Enhancements](#future-enhancements)
-
-## Features
-- Fetches trivia questions from the OpenTDB API.
-- Allows users to select answers for multiple-choice questions.
-- Provides feedback by displaying the score after the quiz.
-- Option to restart the trivia after completion.
 
 ## Getting Started
-
-### Prerequisites
-- Node.js (v14+ recommended)
-- npm or yarn
 
 ### Installation
 1. Clone the repository:
@@ -39,16 +25,7 @@ Quizzical is a trivia-based web application built using React. The application a
    # or
    yarn install
    ```
-
-### Running the Application
-To start the development server, run:
-```bash
-npm start
-# or
-yarn start
-```
-This will start the app on `http://localhost:3000`.
-
+   
 ## Project Structure
 ```bash
 quizzical/
@@ -64,12 +41,6 @@ quizzical/
 │   └── index.js
 └── package.json
 ```
-
-### Key Components
-- **Start.jsx**: The initial screen that prompts the user to start the trivia.
-- **Quiz.jsx**: Displays the trivia questions and handles user interaction with the answers.
-- **End.jsx**: Displays the user's score and provides an option to restart the trivia.
-- **Modal.jsx**: A loading modal displayed while the trivia data is being fetched.
 
 ### State Management
 The app uses React's `useState` to manage the following states:
@@ -93,15 +64,3 @@ fetch(`https://opentdb.com/api.php?amount=5&type=multiple`)
 ```
 - **html-entities**: Used to decode HTML entities in the fetched questions and answers.
 - **nanoid**: Generates unique IDs for questions and options.
-
-### Styling
-The application is styled using a combination of CSS classes defined in `App.css`.
-
-## Future Enhancements
-- **Customization Options**: Allow users to select the number of questions or difficulty level.
-- **Timer**: Add a countdown timer for each question.
-- **Leaderboard**: Implement a leaderboard to track high scores.
-
----
-
-Feel free to adjust the content based on any additional details or changes you make to the project!
